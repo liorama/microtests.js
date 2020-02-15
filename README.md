@@ -9,3 +9,20 @@ Three major reasons:
 # Microtests.js
 Microtests.js is a basic tool to run microtests for Javascript. The plan is to have a library that handles takes the tested code, parses it and runs the tests. Then have that wrapped in plugins for VSCode and IntelliJ. We'll see where this will take us.
 
+## Example
+A microtest can be added with a test comment (syntax is not set yet):
+
+```
+
+// Test a whole line against an assertion
+const myVar = 2.5;  // microtest: assert myVar === true
+
+// Test the expression is true with a given variable/argument value
+myVar * 2 === 5  // microtest: assert true | myVar=2.5
+
+// Test an expression within a line - this might be to horrible an idea
+const someFunc = x => x^2 
+alert(`result of someFunc is ${/*test>*/ someFunc(25) /*<test assert true*/}, wow right?`) 
+
+
+```
